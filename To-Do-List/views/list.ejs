@@ -1,0 +1,36 @@
+
+<%- include("header") -%>
+
+    <div class="box"  id="heading">
+
+        <h1> <%= kindofDay %> / <%= type %> </h1>
+    </div>
+    
+<div class="box">
+
+   
+
+        <%   for(i=0;i<newItem.length;i++) {  %>
+              <form action="/delete"  method="post">
+            <div class="item">
+                <input id="btn" name="check" value="<%= newItem[i]._id %>" type="checkbox" onchange="this.form.submit()">
+          <p id="p"> <%= newItem[i].item  %> </p> 
+        </div>
+
+        <input type="hidden" name="listName" value="<%= type %>"> </input>
+    </form>
+
+       <% }   %>
+       
+       <form class="item" action="/" method="post">
+           <input id="inpt" name="UserInput" type="text" placeholder="New Item" autocomplete="off">
+           <button name="btn" type="submit" value="<%= type  %>">+</button>
+       </form>
+
+</div>
+
+
+<%- include("footer") -%>
+    
+    
+
